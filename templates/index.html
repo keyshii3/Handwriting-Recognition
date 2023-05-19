@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handwriting Recognition</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Handwriting Recognition</h1>
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="file" name="file" class="form-control-file" required />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Predict</button>
+        </div>
+      </form>
+      {% if predicted_class_name %}
+      <div class="alert alert-success">
+        <p>
+          The predicted class is <strong>{{ predicted_class_name }}</strong>.
+        </p>
+        <p>The predicted probability for each class: {{ probabilities }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
